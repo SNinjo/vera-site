@@ -1,0 +1,48 @@
+.button {
+  border-radius: 5px;
+  color: var(--gray7);
+}
+
+.icon {
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background-color: transparent;
+}
+
+.text {
+  padding: 10px 15px;
+  border: 1px solid var(--gray4);
+
+  &.solid {
+    background-color: var(--gray3);
+  }
+  &.outline {
+    background-color: transparent;
+  }
+}
+
+.animation {
+  transition: background-color .1s linear;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--gray4);
+  }
+  &:active {
+    background-color: var(--gray3);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}

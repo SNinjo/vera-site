@@ -1,1 +1,1 @@
-# vera-site
+# Vera Site

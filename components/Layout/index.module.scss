@@ -1,0 +1,119 @@
+.message {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div {
+  width: 100vw;
+
+  display: flex;
+  flex-direction: row;
+
+  font-family: var(--font-roboto);
+  
+  & > aside {
+    width: 250px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    border-right: .1px solid var(--gray3);
+    background-color: var(--gray2);
+
+    & > * {
+      margin: 8px;
+    }
+
+    & > header {
+      & > a {
+        display: block;
+        width: fit-content;
+        padding: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 5px;
+        background-color: var(--gray2);
+
+        transition: background-color 0.1s linear;
+
+        &:hover {
+          background-color: var(--gray4);
+        }
+        &:active {
+          background-color: var(--gray3);
+        }
+      }
+    }
+
+    & > nav {
+      flex: 1;
+
+      & > a {
+        display: block;
+        box-sizing: border-box;
+        padding: 10px 8px;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        border-radius: 5px;
+        color: var(--white);
+
+        font-size: 14px;
+        text-decoration: none;
+        
+        transition: background-color 0.1s linear;
+
+        &.current {
+          background-color: var(--gray3);
+        }
+        &:hover {
+          background-color: var(--gray4);
+        }
+        &:active {
+          background-color: var(--gray3);
+        }
+      }
+    }
+
+    & .footer {
+      padding: 8px;
+
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      border-radius: 5px;
+      background-color: var(--gray2);
+
+      transition: background-color 0.1s linear;
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--gray4);
+      }
+      &:active {
+        background-color: var(--gray3);
+      }
+
+      & > .avatar {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  & > main {
+    width: calc(100vw - 250px);
+  }
+}
+

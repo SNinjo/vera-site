@@ -1,0 +1,53 @@
+:root {
+  --black: #000000;
+  --gray1: #222222;
+  --gray2: #2D2D2D;
+  --gray3: #434343;
+  --gray4: #545454;
+  --gray5: #646464;
+  --gray6: #A1A1A1;
+  --gray7: #EDEDED;
+  --white: #FFFFFF;
+
+  --red1: #7F1D1D;
+  --red2: #DC2626;
+  --red3: #FCA5A5;
+
+  --z-index-context-menu: 10;
+  --z-index-popup: 11;
+}
+
+html,
+body {
+  margin: 0;
+  max-width: 100vw;
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  background-color: var(--gray1);
+  color: var(--white);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--gray2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gray4);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray5);
+}
+::-webkit-scrollbar-thumb:active {
+  background: var(--gray6);
+}
+::-webkit-scrollbar-corner {
+  background: var(--gray2);
+}

@@ -1,0 +1,71 @@
+.contextMenu {
+  position: relative;
+  display: inline-block;
+
+  & > .trigger {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  & > .menu {
+    position: absolute;
+    box-sizing: border-box;
+    min-width: 120px;
+
+    color: var(--white);
+    border: 1px solid var(--gray5);
+    border-radius: 4px;
+    background-color: var(--gray4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: var(--z-index-context-menu);
+
+    font-size: 14px;
+
+    &.top {
+      margin-bottom: 4px;
+      left: 0;
+      bottom: 100%;
+      width: 100%;
+    }
+    &.bottom {
+      margin-top: 4px;
+      left: 0;
+      top: 100%;
+      width: 100%;
+    }
+    &.left {
+      margin-right: 4px;
+      right: 100%;
+      top: 0;
+    }
+    &.right {
+      margin-left: 4px;
+      left: 100%;
+      top: 0;
+    } 
+  }
+}
+
+.menuItem {
+  padding: 10px 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  transition: background-color .1s linear;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--gray5);
+  }
+
+  &.disabled {
+    cursor: default;
+    color: var(--gray6);
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
