@@ -104,7 +104,7 @@ export default function UrlPage() {
         <title>URL | Vera</title>
       </Head>
       <div className={styles.container}>
-        {error && <p className={styles.error}>Error loading urls: {error.message}</p>}
+        {error && <p className={styles.error}>{error.toString()}</p>}
         {isLoading && <Loading size={40} />}
         {data && (
           <div>
