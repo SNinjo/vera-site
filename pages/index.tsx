@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
 import GoogleSignInButton from '@/components/GoogleSignInButton';
@@ -10,6 +11,9 @@ export default function HomePage() {
 
   return (
     <div className={styles.div}>
+      <Head>
+        <title>Vera</title>
+      </Head>
       <div>
         <Image src="/sninjo512x512.png" alt="logo" width={60} height={60} />
         <h1>VERA</h1>

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import useSWR from 'swr';
@@ -21,6 +22,9 @@ export default function RootUrlPage() {
 
   return (
     <Layout>
+      <Head>
+        <title>URL | Vera</title>
+      </Head>
       <div className={styles.container}>
         {error && <p className={styles.error}>Error loading urls: {error.message}</p>}
         {isLoading && <Loading size={40} />}

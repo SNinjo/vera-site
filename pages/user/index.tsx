@@ -1,4 +1,5 @@
 import { SquarePen, SquarePlus, Trash } from 'lucide-react';
+import Head from 'next/head';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import TimeAgo from 'react-timeago';
@@ -91,6 +92,9 @@ export default function UserPage() {
 
   return (
     <Layout>
+      <Head>
+        <title>User | Vera</title>
+      </Head>
       <div className={styles.container}>
         {error && <p className={styles.error}>Error loading users: {error.message}</p>}
         {isLoading && <Loading size={40} />}
