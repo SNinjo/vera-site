@@ -58,38 +58,38 @@ jobs:
             NEXT_PUBLIC_IDENTITY_SERVICE_URL=${{ env.NEXT_PUBLIC_IDENTITY_SERVICE_URL }}
             NEXT_PUBLIC_DRIVE_SERVICE_URL=${{ env.NEXT_PUBLIC_DRIVE_SERVICE_URL }}
 
-  # deploy:
-  #   name: Deploy to ArgoCD
-  #   runs-on: ubuntu-latest
-  #   needs: build-and-push
-  #   env:
-  #     ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
-  #     ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
-  #     ARGOCD_OPTS: --grpc-web
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v6
-  #     - name: Set image tag (Kustomize)
-  #       uses: clowdhaus/argo-cd-action@v3.2.0
-  #       with:
-  #         version: 3.2.1
-  #         command: app
-  #         options: set ${{ env.ARGOCD_APP }} --kustomize-image ${{ env.IMAGE_REFERENCE }}
-  #     - name: Wait for operation
-  #       uses: clowdhaus/argo-cd-action@v3.2.0
-  #       with:
-  #         version: 3.2.1
-  #         command: app
-  #         options: wait ${{ env.ARGOCD_APP }} --operation --timeout 600
-  #     - name: Sync ArgoCD app
-  #       uses: clowdhaus/argo-cd-action@v3.2.0
-  #       with:
-  #         version: 3.2.1
-  #         command: app
-  #         options: sync ${{ env.ARGOCD_APP }}
-  #     - name: Wait for health
-  #       uses: clowdhaus/argo-cd-action@v3.2.0
-  #       with:
-  #         version: 3.2.1
-  #         command: app
-  #         options: wait ${{ env.ARGOCD_APP }} --health --timeout 600
+  deploy:
+    name: Deploy to ArgoCD
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    env:
+      ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+      ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
+      ARGOCD_OPTS: --grpc-web
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Set image tag (Kustomize)
+        uses: clowdhaus/argo-cd-action@v3.2.0
+        with:
+          version: 3.2.1
+          command: app
+          options: set ${{ env.ARGOCD_APP }} --kustomize-image ${{ env.IMAGE_REFERENCE }}
+      - name: Wait for operation
+        uses: clowdhaus/argo-cd-action@v3.2.0
+        with:
+          version: 3.2.1
+          command: app
+          options: wait ${{ env.ARGOCD_APP }} --operation --timeout 600
+      - name: Sync ArgoCD app
+        uses: clowdhaus/argo-cd-action@v3.2.0
+        with:
+          version: 3.2.1
+          command: app
+          options: sync ${{ env.ARGOCD_APP }}
+      - name: Wait for health
+        uses: clowdhaus/argo-cd-action@v3.2.0
+        with:
+          version: 3.2.1
+          command: app
+          options: wait ${{ env.ARGOCD_APP }} --health --timeout 600
